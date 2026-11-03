@@ -1,0 +1,21 @@
+{% extends 'catalogo/base.html' %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-6 mb-4">
+        <img src="{{ LugarPatrimonial.imagen }}" class="img-fluid rounded shadow" alt="{{ lugar.nombre }}">
+    </div>
+    <!-- columna de informacion -->
+    <div>
+        <h2>{{ lugar.nombre }}</h2>
+        <span class="badge bg-info text-dark mb-3">{{ LugarPatrimonial.categoria.nombre }}</span>
+        <p><strong>Ubicacion: </strong> {{ LugarPatrimonial.ubicacion }}</p>
+        <p><strong>Año: </strong>{{ LugarPatrimonial.anio_construccion }}</p>
+        <hr>
+        <h4>Descripcion</h4>
+        <p class="text-justify">{{ LugarPatrimonial.descripcion}}</p>
+        <a href="{% url 'catalogo' %}" class="btn btn-outline-secondary mt-3">Volver al Catalogo</a>
+    </div>
+</div>
+
+{% endblock %}
