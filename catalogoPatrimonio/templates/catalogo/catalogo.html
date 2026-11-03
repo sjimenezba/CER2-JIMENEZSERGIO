@@ -1,0 +1,25 @@
+{% extends 'catalogo/base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Catálogo Patrimonial</h2>
+<div class="row">
+    <!-- Recorremos los lugares traídos por el ORM -->
+    {% for lugar in lugares %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <img src="{{ lugar.imagen }}" class="card-img-top" alt="{{ lugar.nombre }}" style="height: 200px; object-fit: cover;">
+            <div class="card-body">
+                <h5 class="card-title">{{ lugar.nombre }}</h5>
+                <p class="card-text text-muted">{{ lugar.categoria.nombre }} | Año: {{ lugar.anio_construccion }}</p>
+                <!-- Enlace al RF03: Pasamos el id dinámicamente -->
+                <a href="{% url 'detalle' lugar.id %}" class="btn btn-outline-primary btn-sm">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12">
+        <div class="alert alert-warning">Aún no hay lugares patrimoniales registrados en el sistema.</div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
