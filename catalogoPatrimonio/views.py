@@ -8,7 +8,19 @@ def index(request):
 # RF02: Listado de lugares registrados
 def catalogo_view(request):
     lugares = LugarPatrimonial.objects.all()
-    return render(request, 'catalogo/catalogo.html', {'lugares': lugares})
+    categorias = Categoria.objects.all()
+    return render(request, 'catalogo/catalogo.html', {'lugares': lugares, 'categorias': categorias})
+#RF05
+def filtro_categoria(request, id):
+    categoria_seleccionada = get_object_or_404(Categoria, id=id)
+    lugares = LugarPatrimonial.objects.filter(categoria=categoria_seleccionada)
+    categorias = Categoria.objects.all()
+
+    return render(request, 'catalogo/catalogo.html', {
+        'lugares': lugares,
+        'categorias': categorias,
+        'categoria_seleccionada': categoria_seleccionada
+    })
 
 #RF03: Vista individual con la info del lugar
 def detalle_lugar(request, id):

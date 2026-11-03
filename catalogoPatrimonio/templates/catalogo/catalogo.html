@@ -2,6 +2,15 @@
 
 {% block content %}
 <h2 class="mb-4">Catálogo Patrimonial</h2>
+<div class="mb-4">
+    <strong>Filtrar por:</strong>
+    <a href="{% url 'catalogo' %}" class="btn btn-sm {% if not categoria_seleccionada %}btn-primary{% else %}btn-outline-primary{% endif %} me-2 mb-2">Todos</a>
+    {% for cat in categorias %}
+        <a href="{% url 'filtro' cat.id %}" class="btn btn-sm {% if categoria_seleccionada.id == cat.id %}btn-primary{% else %}btn-outline-primary{% endif %} me-2 mb-2">
+            {{ cat.nombre }}
+        </a>
+    {% endfor %}
+</div>
 <div class="row">
     <!-- Recorremos los lugares traídos por el ORM -->
     {% for lugar in lugares %}
