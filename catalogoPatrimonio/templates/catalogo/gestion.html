@@ -1,0 +1,48 @@
+{% extends 'catalogo/base.html' %}
+
+{% block content %}
+
+<div class="row mt-4">
+    <div class="col-12 d-flex justify-content-between align-items-center mb-3">
+        <h2>Panel de Gestion Patrimonial</h2>
+        <a href="{% url 'agregar_lugar' %}" class="btn btn-success">
+            + Agregar Nuevo Lugar
+        </a>
+
+    </div>
+
+    <div class="col-12">
+        <table class="table table-stripped table-hover shadow-sm">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Año de Construccion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lugar in lugares %}
+                <tr>
+                    <td>{{ lugar.id }}</td>
+                    <td>{{ lugar.nombre }}</td>
+                    <td>{{ lugar.categoria.nombre }}</td>
+                    <td>{{ lugar.anio_construccion }}</td>
+                    <td>
+                        <a href="{% url 'editar_lugar' lugar.id %}" class="btn btn-warning btn-sm">Editar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">No hay lugares registrados.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

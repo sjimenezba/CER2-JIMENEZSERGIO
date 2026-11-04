@@ -14,6 +14,9 @@
                 <a class="nav-link" href="{% url 'catalogo' %}">Catálogo</a>
                 <div class="ms-auto d-flex">
                     {% if user.is_authenticated %}
+                        <a class="nav-link btn btn-outline-warning text-dark btn-sm me-3" href="{% url 'gestion' %}">
+                            Panel de Gestion
+                        </a>
                         <span class="navbar-text me-3 text-white">Hola, {{ user.username }}</span>
                         <form action="{% url 'logout' %}" method="post">
                             {% csrf_token %}
