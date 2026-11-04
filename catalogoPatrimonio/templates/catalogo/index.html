@@ -1,9 +1,34 @@
 {% extends 'catalogo/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'catalogo/css/landing.css' %}">
+{% endblock %}
+
+{% block hero %}
+<section class="hero">
+    <div class="container text-center">
+        <p class="hero-tag">Fundación sin fines de lucro</p>
+        <h1 class="hero-title">Patrimonio Vivo</h1>
+        <p class="lead hero-text">Identificamos, documentamos y difundimos los lugares patrimoniales de Chile.</p>
+        <a href="{% url 'catalogo' %}" class="btn btn-warning btn-lg mt-3">Ir al Catálogo Patrimonial</a>
+    </div>
+</section>
+{% endblock %}
 
 {% block content %}
-<div class="text-center py-5">
-    <h1>Bienvenido a la Fundación Patrimonio Vivo</h1>
-    <p class="lead">Explora, documenta y difunde los lugares históricos de Chile.</p>
-    <a href="{% url 'catalogo' %}" class="btn btn-primary btn-lg mt-3">Ir al Catálogo Patrimonial</a>
+<div class="row text-center g-4 my-2">
+    <div class="col-md-4"><div class="feature p-4 h-100">
+        <h4>Identificar</h4>
+        <p class="text-muted mb-0">Edificios históricos, monumentos y murales de distintas ciudades.</p>
+    </div></div>
+    <div class="col-md-4"><div class="feature p-4 h-100">
+        <h4>Documentar</h4>
+        <p class="text-muted mb-0">Información centralizada y actualizada en un solo catálogo digital.</p>
+    </div></div>
+    <div class="col-md-4"><div class="feature p-4 h-100">
+        <h4>Difundir</h4>
+        <p class="text-muted mb-0">Acceso abierto para que la comunidad explore su patrimonio.</p>
+    </div></div>
 </div>
 {% endblock %}
