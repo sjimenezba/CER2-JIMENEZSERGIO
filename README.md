@@ -11,8 +11,8 @@ Aplicacion web desarrollada en Django Framework para centralizar y difundir luga
     `git clone https://github.com/tu-usuario/CER2-JIMENEZSERGIO.git`
 2. **Navegar a la carpeta**
     `cd CER2-JIMENEZSERGIO`
-3. **Instalar dependencia: Django**
-    `pip install django`
+3. **Instalar dependencias**
+    `pip install -r requirements.txt`
 4. **Aplicar migraciones (base de datos)**
     `py manage.py makemigrations`
     `py manage.py migrate`
