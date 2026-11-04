@@ -20,3 +20,5 @@ Aplicacion web desarrollada en Django Framework para centralizar y difundir luga
     `py manage.py createsuperuser`
 6. **Ejecutar el servidor local**
     `py manage.py runserver`
+
+Para crear los usuarios de prueba ver [USUARIOS.md](USUARIOS.md).
