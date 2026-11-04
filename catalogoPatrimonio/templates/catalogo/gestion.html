@@ -5,9 +5,9 @@
 <div class="row mt-4">
     <div class="col-12 d-flex justify-content-between align-items-center mb-3">
         <h2>Panel de Gestion Patrimonial</h2>
-        <a href="{% url 'agregar_lugar' %}" class="btn btn-success">
-            + Agregar Nuevo Lugar
-        </a>
+        {% if perms.catalogoPatrimonio.add_lugarpatrimonial %}
+            <a href="{% url 'agregar_lugar' %}" class="btn btn-success">+ Agregar Nuevo Lugar</a>
+        {% endif %}
 
     </div>
 
@@ -30,7 +30,9 @@
                     <td>{{ lugar.categoria.nombre }}</td>
                     <td>{{ lugar.anio_construccion }}</td>
                     <td>
-                        <a href="{% url 'editar_lugar' lugar.id %}" class="btn btn-warning btn-sm">Editar</a>
+                        {% if perms.catalogoPatrimonio.change_lugarpatrimonial %}
+                            <a href="{% url 'editar_lugar' lugar.id %}" class="btn btn-warning btn-sm">Editar</a>
+                        {% endif %}
                     </td>
                 </tr>
                 {% empty %}
